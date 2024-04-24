@@ -5,12 +5,14 @@ import { TIngredient } from '@utils-types';
 import { useDispatch, useSelector } from '../../services/store';
 import { useParams } from 'react-router-dom';
 import { fetchGetOrdersById } from '../../services/orderSlice';
+import { fetchGetIngredients } from '../../services/burgerSlice';
 
 export const OrderInfo: FC = () => {
   const dispatch = useDispatch();
   const {number} = useParams();
   useEffect(() => {
     dispatch(fetchGetOrdersById(Number(number)));
+    dispatch(fetchGetIngredients());
   }, []);
 
   /** TODO: взять переменные orderData и ingredients из стора */

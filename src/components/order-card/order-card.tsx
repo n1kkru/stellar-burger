@@ -16,7 +16,7 @@ export const OrderCard: FC<OrderCardProps> = memo(({ order }) => {
   useEffect(() => {
     dispatch(fetchGetIngredients());
   }, [location]);
- 
+
   const orderInfo = useMemo(() => {
     if (!ingredients.length) return null;
 
@@ -33,13 +33,10 @@ export const OrderCard: FC<OrderCardProps> = memo(({ order }) => {
 
     const ingredientsToShow = ingredientsInfo.slice(0, maxIngredients);
 
-    const remains =
-      ingredientsInfo.length > maxIngredients
-        ? ingredientsInfo.length - maxIngredients
-        : 0;
+    const remains = Math.max(ingredientsInfo.length - maxIngredients, 0);
 
     const date = new Date(order.createdAt);
-      
+
     return {
       ...order,
       ingredientsInfo,

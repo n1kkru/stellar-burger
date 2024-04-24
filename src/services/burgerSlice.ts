@@ -9,7 +9,7 @@ type TConstructor = {
     image: string | null;
     name: string;
   } | null;
-  ingredients: any[];
+  ingredients: TIngredient[];
 };
 
 export interface BurgerStateInterface {
@@ -41,7 +41,6 @@ export const fetchGetIngredients = createAsyncThunk(
   }
 );
 
-/* TODO: PayloadAction<any> изменить*/
 const burgerSlice = createSlice({
   name: 'burger',
   initialState,
@@ -49,7 +48,12 @@ const burgerSlice = createSlice({
     init: (state) => {
       state.isInit = true;
     },
-    addBuns: (state, action: PayloadAction<any>) => {
+    addBuns: (state, action: PayloadAction<{
+      _id: string;
+      price: number;
+      image: string | null;
+      name: string;
+    }>) => {
       state.constructorItems.bun = action.payload;
     },
     addIngredient: (state, action: PayloadAction<TIngredient>) => {
@@ -83,12 +87,13 @@ const burgerSlice = createSlice({
     });
   },
   selectors: {
-    selectIngredients: (state) => state.constructorItems,
-    selectIsLoading: (state) => state.isLoading
+    getIngredients: state => state.ingredients,
+    getIsLoading: state => state.isLoading,
+    getConstructor: state => state.constructorItems,
   }
 });
 
-export const { selectIngredients, selectIsLoading } = burgerSlice.selectors;
+export const { getConstructor, getIngredients, getIsLoading } = burgerSlice.selectors;
 export const { init, addBuns, addIngredient, removeIngredient, resetConstructor } =
   burgerSlice.actions;
 export default burgerSlice.reducer;

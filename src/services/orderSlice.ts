@@ -1,4 +1,9 @@
-import { getFeedsApi, getOrderByNumberApi, getOrdersApi, orderBurgerApi } from '@api';
+import {
+  getFeedsApi,
+  getOrderByNumberApi,
+  getOrdersApi,
+  orderBurgerApi
+} from '@api';
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { TOrder } from '@utils-types';
 
@@ -17,7 +22,7 @@ const initialState: OrderStateInterface = {
   feeds: [],
   error: '',
   orderModalData: null,
-  orderData: null,
+  orderData: null
 };
 
 export const fetchGetFeeds = createAsyncThunk(
@@ -64,8 +69,14 @@ const orderSlice = createSlice({
     },
     resetOrder: (state) => {
       state.orderRequest = false;
-      state.orderModalData = null
-    },
+      state.orderModalData = null;
+    }
+  },
+  selectors: {
+    getOrderModalData: state => state.orderModalData,
+    getIsLoading: state => state.isLoading,
+    getFeeds: state => state.feeds,
+    getOrderdata: state => state.orderData,
   },
   extraReducers: (builder) => {
     builder.addCase(fetchGetFeeds.pending, (state) => {
@@ -101,10 +112,11 @@ const orderSlice = createSlice({
       state.feeds = [];
     });
     builder.addCase(fetchGetOrdersById.fulfilled, (state, action) => {
-      state.orderData = action.payload.orders[0];      
+      state.orderData = action.payload.orders[0];
     });
   }
 });
 
+export const { getIsLoading, getOrderModalData, getFeeds, getOrderdata } = orderSlice.selectors;
 export const { setOrderRequest, addOrder, resetOrder } = orderSlice.actions;
 export default orderSlice.reducer;
