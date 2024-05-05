@@ -5,12 +5,20 @@ describe('test stellar burger', () => {
     cy.visit('http://localhost:4000');
     //открытие
     cy.get(':nth-child(2) > :nth-child(2) > .J2V21wcp5ddf6wQCcqXv > img').click();
+    
     cy.get('.xqsNTMuGR8DdWtMkOGiM').should('be.visible');
+    //открылось то, на которое нажимали
+    cy.get('.G7XCxXE59ujtXU1FO7W1 > .text_type_main-medium').then((value) => {
+      cy.get(':nth-child(2) > :nth-child(2) > .J2V21wcp5ddf6wQCcqXv > img')
+      .next()
+      .next()
+      .should('have.text', value.text());
+    });
     //закрытие на кнопку
     cy.get('.Z7mUFPBZScxutAKTLKHN').click();
   })
 
-  it('добавление булки и начинки и отправка заказа', () => {
+  it('добавление булки и начинки + отправка заказа', () => {
     cy.visit('http://localhost:4000');
     cy.intercept('GET', '**/ingredients', {fixture: 'ingredients.json' });
     cy.intercept('POST', '**/orders', {fixture: 'order.json' });

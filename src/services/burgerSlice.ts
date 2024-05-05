@@ -1,4 +1,4 @@
-import { getIngredientsApi } from '@api';
+import { getIngredientsApi } from '../utils/burger-api';
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { TIngredient } from '@utils-types';
 
@@ -87,13 +87,14 @@ const burgerSlice = createSlice({
     });
   },
   selectors: {
-    getIngredients: state => state.ingredients,
+    allIngredients: (state) => state.ingredients,  
+    getIngredients: (state : BurgerStateInterface) => state.ingredients,
     getIsLoading: state => state.isLoading,
     getConstructor: state => state.constructorItems,
   }
 });
 
-export const { getConstructor, getIngredients, getIsLoading } = burgerSlice.selectors;
+export const { getConstructor, allIngredients, getIsLoading } = burgerSlice.selectors;
 export const { init, addBuns, addIngredient, removeIngredient, resetConstructor } =
   burgerSlice.actions;
 export default burgerSlice.reducer;

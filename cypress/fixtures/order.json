@@ -54,11 +54,12 @@
       "name": "Бильбо", 
       "email": "bilbo@test.com", 
       "createdAt": "2024-04-18T11:21:20.611Z", 
-      "updatedAt": "2024-04-23T09:09:16.434Z"},
-      "price" : 2850,
-      "status" : "done",
-      "updatedAt" : "2024-05-04T17:56:29.263Z",
-      "_id" : "663676cc97ede0001d068f7c"
+      "updatedAt": "2024-04-23T09:09:16.434Z"
+    },
+    "price" : 2850,
+    "status" : "done",
+    "updatedAt" : "2024-05-04T17:56:29.263Z",
+    "_id" : "663676cc97ede0001d068f7c"
   }
 }
 

@@ -1,4 +1,4 @@
-import { TLoginData, TRegisterData, TUserResponse, getUserApi, loginUserApi, logoutApi, registerUserApi, updateUserApi } from "@api";
+import { TLoginData, TRegisterData, TUserResponse, getUserApi, loginUserApi, logoutApi, registerUserApi, updateUserApi } from "../utils/burger-api";
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { TUser } from "@utils-types";
 

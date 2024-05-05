@@ -178,7 +178,7 @@ const config: Config = {
   transform: {
     // '^.+\\.[tj]sx?$' для обработки файлов js/ts с помощью `ts-jest`
     // '^.+\\.m?[tj]sx?$' для обработки файлов js/ts/mjs/mts с помощью `ts-jest`
-    '^.+\\.tsx?$': [
+    '^.+\\.test.tsx?$': [
       'ts-jest',
       {
         // настройки для ts-jest
