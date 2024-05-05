@@ -15,7 +15,9 @@ describe('test stellar burger', () => {
     cy.intercept('GET', '**/ingredients', {fixture: 'ingredients.json' });
     cy.intercept('POST', '**/orders', {fixture: 'order.json' });
 
-
+    cy.setCookie("refreshToken", "test-refreshToken");
+    cy.setCookie('accessToken', 'test-accessToken');
+  
     // добавляется булка
     cy.get(':nth-child(2) > :nth-child(2) > .common_button').click();
     // проверка, что булка в конструкторе
