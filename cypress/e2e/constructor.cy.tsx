@@ -49,7 +49,7 @@ describe('test stellar burger', () => {
     let titleText = require('../fixtures/order.json')
     cy.get('.xqsNTMuGR8DdWtMkOGiM').should('be.visible');
     cy.get('.U070UGjz0x5J0l3NxX3I').should(($identifier) => {
-      const idText = $identifier.text()
+      const idText = $identifier.text();
       expect(idText, 'ID').to.equal(String(titleText.order.number));
     });
     // закрываем модалку
