@@ -1,15 +1,26 @@
 /// <reference types="cypress"/>
 
 describe('test stellar burger', () => {
+
+  beforeEach(() => {
+    cy.setCookie("refreshToken", "test-refreshToken");
+    cy.setCookie('accessToken', 'test-accessToken');
+  })
+
+  afterEach(() => {
+    cy.clearAllCookies();
+  })
+
   it('открытие и закрытие модальных окон', () => {
-    cy.visit('http://localhost:4000');
+    //открываем базовый url
+    cy.visit('/');
     //открытие
-    cy.get(':nth-child(2) > :nth-child(2) > .J2V21wcp5ddf6wQCcqXv > img').click();
+    cy.get(':nth-child(2) > :nth-child(2) > .J2V21wcp5ddf6wQCcqXv > img').click().as('someBun');
     
     cy.get('.xqsNTMuGR8DdWtMkOGiM').should('be.visible');
     //открылось то, на которое нажимали
     cy.get('.G7XCxXE59ujtXU1FO7W1 > .text_type_main-medium').then((value) => {
-      cy.get(':nth-child(2) > :nth-child(2) > .J2V21wcp5ddf6wQCcqXv > img')
+      cy.get('@someBun')
       .next()
       .next()
       .should('have.text', value.text());
@@ -19,13 +30,10 @@ describe('test stellar burger', () => {
   })
 
   it('добавление булки и начинки + отправка заказа', () => {
-    cy.visit('http://localhost:4000');
+    cy.visit('/');
     cy.intercept('GET', '**/ingredients', {fixture: 'ingredients.json' });
     cy.intercept('POST', '**/orders', {fixture: 'order.json' });
 
-    cy.setCookie("refreshToken", "test-refreshToken");
-    cy.setCookie('accessToken', 'test-accessToken');
-  
     // добавляется булка
     cy.get(':nth-child(2) > :nth-child(2) > .common_button').click();
     // проверка, что булка в конструкторе
