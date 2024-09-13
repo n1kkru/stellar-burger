@@ -1,0 +1,65 @@
+{
+  "success": true,
+  "name": "Флюоресцентный фалленианский люминесцентный бургер",
+  "order": {
+    "createdAt" : "2024-05-04T17:56:28.743Z",
+    "ingredients" : [
+      {
+        "calories" : 643,
+        "carbohydrates" : 85,
+        "fat" : 26,
+        "image" : "https://code.s3.yandex.net/react/code/bun-01.png",
+        "image_large" : "https://code.s3.yandex.net/react/code/bun-01-large.png",
+        "image_mobile" : 
+        "https://code.s3.yandex.net/react/code/bun-01-mobile.png",
+        "name" : 
+        "Флюоресцентная булка R2-D3",
+        "price" : 988,
+        "proteins" : 44,
+        "type" : "bun",
+        "__v" : 0,
+        "_id" : "643d69a5c3f7b9001cfa093d"
+      }, 
+      {
+        "calories" : 643,
+        "carbohydrates" : 85,
+        "fat" : 26,
+        "image" : "https://code.s3.yandex.net/react/code/meat-03.png",
+        "image_large" : "https://code.s3.yandex.net/react/code/meat-03-large.png",
+        "image_mobile" : "https://code.s3.yandex.net/react/code/meat-03-mobile.png",
+        "name" : "Филе Люминесцентного тетраодонтимформа",
+        "price" : 988,
+        "proteins" : 44,
+        "type" : "main",
+        "__v" : 0,
+        "_id" : "643d69a5c3f7b9001cfa093e"
+      }, 
+      {
+        "calories" : 77,
+        "carbohydrates" : 55,
+        "fat" : 5,
+        "image" : "https://code.s3.yandex.net/react/code/sp_1.png",
+        "image_large" : "https://code.s3.yandex.net/react/code/sp_1-large.png",
+        "image_mobile" : "https://code.s3.yandex.net/react/code/sp_1-mobile.png",
+        "name" : "Плоды Фалленианского дерева",
+        "price" : 874,
+        "proteins" : 20,
+        "type" : "main",
+        "__v" : 0,
+        "_id" : "643d69a5c3f7b9001cfa0947"
+      }],
+    "name": "Флюоресцентный фалленианский люминесцентный бургер",
+    "number" : 39292,
+    "owner" : {
+      "name": "Бильбо", 
+      "email": "bilbo@test.com", 
+      "createdAt": "2024-04-18T11:21:20.611Z", 
+      "updatedAt": "2024-04-23T09:09:16.434Z"
+    },
+    "price" : 2850,
+    "status" : "done",
+    "updatedAt" : "2024-05-04T17:56:29.263Z",
+    "_id" : "663676cc97ede0001d068f7c"
+  }
+}
+
