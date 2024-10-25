@@ -1,5 +1,4 @@
-# Проектная работа 11-го спринта
-## Космическая бургерная
+# Космическая бургерная
 
 Стек: TS, React, Redux, Jest и Cypress
 ![2024-09-13_13-32-21](https://github.com/user-attachments/assets/c6f459d0-1c4d-4429-8dee-6458807439bd)
